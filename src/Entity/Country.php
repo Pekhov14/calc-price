@@ -16,6 +16,9 @@ class Country
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 2)]
+    private ?string $code = null;
+
     #[ORM\Column]
     private ?float $tax = null;
 
@@ -32,6 +35,18 @@ class Country
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): self
+    {
+        $this->code = $code;
 
         return $this;
     }
