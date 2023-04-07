@@ -39,6 +39,17 @@ class CountryRepository extends ServiceEntityRepository
         }
     }
 
+    public function findTaxByCode(string $code): ?float
+    {
+        $countryCode = substr($code, 0, 2);
+
+        $country = $this->findOneBy(['code' => $countryCode]);
+        if ($country) {
+            return $country->getTax();
+        }
+        return null;
+    }
+
 //    /**
 //     * @return Country[] Returns an array of Country objects
 //     */
