@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calc Price!{% endblock %}
+
+{% block body %}
+    <div class="container text-center w-50">
+        <div class="mb-3">
+            <h1 class="h1">Расчет цены продукта</h1>
+        </div>
+
+        <form id="my-form"
+              class="js-form"
+              method="POST"
+              action="{{ path('app_calc_price') }}"
+        >
+            {{ form_widget(form) }}
+        </form>
+    </div>
+{% endblock %}
+
+

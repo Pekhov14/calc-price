@@ -16,15 +16,29 @@ class ProductPriceType extends AbstractType
     {
         $builder
             ->add('product', ChoiceType::class, [
+                'label' => false,
                 'choices' => $options['products'],
+                'attr' => [
+                    'class' => 'form-select mb-3',
+                ],
             ])
             ->add('taxNumber', TextType::class, [
-                'label' => 'Tax Number',
+                'label' => false,
                 'constraints' => [
                     new CountryCodeError(),
                 ],
+                'attr' => [
+                    'placeholder' => 'Tax номер',
+                    'class' => 'form-control mb-3',
+                ],
+
             ])
-            ->add('submit', SubmitType::class);
+            ->add('submit', SubmitType::class, [
+                'label' => 'Подсчет',
+                'attr' => [
+                    'class' => 'btn btn-primary form-control',
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
